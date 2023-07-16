@@ -59,53 +59,29 @@ public:
 		numerator_ = numerator;
 		denominator_ = denominator;
 	}
-	bool operator == (const Fraction& other)
+	bool operator == (const Fraction& other) const
 	{
-		if (this->numerator_ == other.numerator_ && this->denominator_ == other.denominator_)
-		{ 
-			return true; 
-		}
-		else { return false; }
+		return (this->numerator_ == other.numerator_ || this->denominator_ == other.denominator_);
 	}
-	bool operator != (const Fraction& other)
+	bool operator != (const Fraction& other) const
 	{
-		if (this->numerator_ != other.numerator_ && this->denominator_ != other.denominator_)
-		{
-			return true;
-		}
-		else { return false; }
+		return (this->numerator_ != other.numerator_ || this->denominator_ != other.denominator_);
 	}
-	bool operator < (const Fraction& other)
+	bool operator < (const Fraction& other) const
 	{
-		if (this->numerator_ < other.numerator_ && this->denominator_ < other.denominator_)
-		{
-			return true;
-		}
-		else { return false; }
+		return (this->numerator_ / double(this->denominator_) < other.numerator_ / double(other.denominator_));
 	}
-	bool operator > (const Fraction& other)
+	bool operator > (const Fraction& other) const
 	{
-		if (this->numerator_ > other.numerator_ && this->denominator_ > other.denominator_)
-		{
-			return true;
-		}
-		else { return false; }
+		return (this->numerator_ / double(this->denominator_) > other.numerator_ / double(other.denominator_));
 	}
-	bool operator <= (const Fraction& other)
+	bool operator <= (const Fraction& other) const
 	{
-		if (this->numerator_ <= other.numerator_ && this->denominator_ <= other.denominator_)
-		{
-			return true;
-		}
-		else { return false; }
+		return (this->numerator_ / double(this->denominator_) <= other.numerator_ / double(other.denominator_));
 	}
-	bool operator >= (const Fraction& other)
+	bool operator >= (const Fraction& other) const
 	{
-		if (this->numerator_ >= other.numerator_ && this->denominator_ >= other.denominator_)
-		{
-			return true;
-		}
-		else { return false; }
+		return (this->numerator_ / double(this->denominator_) >= other.numerator_ / double(other.denominator_));
 	}
 };
 
@@ -122,4 +98,3 @@ int main()
 	std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
 	return 0;
 }
-
